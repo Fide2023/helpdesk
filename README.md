@@ -53,7 +53,7 @@ npm install "package name"  # example: npm install express
 To run the code, you have to go to the project folder and type `node index.js` in the terminal.
 
 # Creating Super Admin
-The system should now be fully operationabal. To create a Super Admin for the server, login with the wanted account and close the server.
+The system should now be fully operationabal at localhost:1337 in your browser. To create a Super Admin for the server, login with the wanted account and close the server.
 
 move to ticket/sql in the terminal and enter the database using mariadb. Inside the database you can manually change the role of the created account by doing the following:
 
