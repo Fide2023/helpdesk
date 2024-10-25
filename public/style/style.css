@@ -1,0 +1,462 @@
+/* Universal styles */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: rgb(191, 191, 191);
+}
+
+/* Header */
+.main-header {
+    background-color: rgb(230, 229, 229);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 6px solid rgb(191, 191, 191);
+    border-radius: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+ul {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #6c6c6c;
+}
+
+#li_right:hover a {
+    background-color: #6c6c6c;
+    border-radius: 0 10px 10px 0;
+}
+
+#li_left:hover a {
+    background-color: #6c6c6c;
+    border-radius: 10px 0 0 10px;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.nav-right {
+    margin-left: auto;
+    display: flex;
+}
+
+
+/* Content */
+.content-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: rgb(240, 240, 240);
+}
+
+/* Footer */
+.main-footer {
+    background-color: rgb(145, 145, 145);
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    font-size: x-large;
+    padding: 20px;
+    width: 100%;
+}
+
+#footer-2 {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+/* Form Elements */
+textarea, select, input[type=text], input[type=button], input[type=submit], input[type=reset] {
+    display: block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+textarea {
+    width: 80%;
+    height: 180px;
+    resize: none;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+select {
+    width: 20%;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #898989;
+    color: white;
+    padding: 16px 32px;
+    cursor: pointer;
+    border: 1px solid #5e5e5e;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #434343;
+}
+
+.creation-div {
+    margin: 10px;
+}
+
+/* Table Styles */
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 50px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+table tr:hover {
+    background-color: #b5b5b5;
+}
+
+table th {
+    background-color: rgb(73, 128, 53);
+    color: white;
+    padding: 12px;
+    height: 50px;
+}
+
+/* Button Styles */
+.td-view {
+    text-align: center;
+}
+
+.view {
+    width: 80%;
+    display: inline-block;
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.view:hover {
+    background-color: #028a53;
+}
+
+/* Filter Form */
+.filter-form {
+    display: flex;
+    align-items: flex-start;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Align items vertically centered */
+    gap: 20px; /* Add spacing between items */
+    flex-wrap: wrap; /* Allows wrapping to a new line if the container is too small */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.filter-lable {
+    flex-direction: column;
+}
+
+/* Input & Button Customizations */
+.status-filter,
+.category-filter,
+.agent-filter {
+    width: 200px;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.description-filter {
+    width: 300px;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox to align items in a row */
+    gap: 10px; /* Optional: adds space between buttons */
+}
+
+.button-filter {
+    background-color: #333;
+    width: 40%;
+    padding: 10px;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button-filter-comment {
+    background-color: #333;
+    width: 15%;
+    padding: 10px;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button-filter-right {
+    background-color: #333;
+    width: 100%;
+    padding: 10px;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Centered Box */
+.centered-box {
+    width: 60%;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.listing-text {
+    width: 100%;
+}
+
+.comment-text {
+    width: 80%;
+    height: 50%;
+}
+
+.comments {
+    width: 80%;
+    height: 80px;
+    white-space: pre-wrap; /* Ensures that long text wraps correctly */
+    word-wrap: break-word; /* Breaks long words when necessary */
+    overflow-wrap: break-word; /* Ensures text doesn't overflow */
+}
+
+.comment-text-all {
+    width: 75%;
+    height: 100px;
+}
+
+#title {
+    width: 20%;
+}
+
+#status_change,
+#category_change {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    font-size: larger;
+}
+  
+.user_role {
+    width: 100%;
+}
+
+.return-button {
+    text-decoration: none;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Align items vertically centered */
+    gap: 10px; /* Add spacing between items */
+    flex-wrap: wrap; /* Allows wrapping to a new line if the container is too small */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.description {
+    width: 85%;
+    height: 100px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.lable {
+    flex-direction: column;
+    width: 42%;
+}
+
+.claim-button {
+    width: 100%;
+    height: 42px;
+}
+
+/* Center the file list container and display files in a row */
+.file-list {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0 auto; /* Centers the list */
+    display: flex; /* Display list items in a row */
+    justify-content: center; /* Centers the files in the container */
+    flex-wrap: wrap; /* Allows wrapping to the next row if there are too many files */
+    gap: 15px; /* Adds space between each file */
+}
+
+/* Style the file links */
+.file-link {
+    text-decoration: none; /* Removes underline */
+    color: #000000; /* Link color */
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for no files message */
+.no-files {
+    text-align: center;
+    font-style: italic;
+    color: #888; /* Grey color for no files message */
+}
+
+.highlight {
+    border: 2px solid rgba(255, 255, 0, 0.593); /* Change to your preferred highlight color */
+}
+
+.green-circle {
+    display: inline-block; /* Allows to sit next to the title */
+    width: 10px;          /* Circle width */
+    height: 10px;         /* Circle height */
+    border-radius: 50%;   /* Makes the element circular */
+    background-color: green; /* Circle color */
+    margin-right: 5px;    /* Space between circle and title */
+    vertical-align: middle; /* Aligns with the middle of the text */
+}
+
+#post {
+    background-color: #434343;
+    text-align: center;
+}
+
+#post:hover {
+    background-color: #2e2e2e;
+}
+
+#ticket_id {
+    width: 30%;
+    min-width: 200px;
+}
+
+#post_issue_solution {
+    width: 60%;
+    min-width: 300px;
+    height: 100px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width:30%;
+  }
+  
+  .button-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+
+  .box-details {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style the summary tag */
+.box-details summary {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.post {
+    width: 100%;
+    height: 100px;
+}
+
+.lable-post {
+    flex-direction: column;
+    width: 80%;
+}

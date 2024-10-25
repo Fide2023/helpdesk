@@ -1,0 +1,51 @@
+<%- include("./../partials/header.ejs") %>
+<div class="content-container">
+  <div class="creation-div">
+      <form method="post" action="/create" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Title" required maxlength="20">
+        
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category</option>
+          <% category.forEach(function(category) { %>
+              <option value="<%= category.category %>"><%= category.category %></option>
+          <% }) %>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Description here..." required maxlength="1000"></textarea>
+        
+        <label for="images">Attach Files</label>
+        <input type="file" id="images" name="images" accept="image/*,application/pdf" multiple onchange="validateFiles(this)">
+        
+        <input type="submit" value="Submit">
+      </form>
+  </div>
+</div>
+<%- include("./../partials/footer.ejs") %>
+
+
+  <script>
+  const maxFiles = 4;
+  const maxTotalSize = 5 * 1024 * 1024;
+
+  function validateFiles(input) {
+    let totalsize = 0;
+
+    if (input.files.length > maxFiles) {
+      alert("You can only upload a maximum of " + maxFiles + " files.");
+      input.value = ''; // Clear the file input
+      return;
+    }
+
+    for (let i = 0; i < input.files.length; i++) {
+      totalsize += input.files[i].size;
+    }
+
+    if (totalsize > maxTotalSize) {
+      alert("The total size of your files must be under " + (maxTotalSize / (1024 * 1024)) + " MB");
+      input.value = "";
+    }
+  }
+</script>

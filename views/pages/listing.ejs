@@ -1,0 +1,80 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+    <form method="get" action="/listing/filter">
+        <div class="filter">
+            <div class="filter-lable">
+                <label for="description">Description</label>
+                <textarea type="text" class="description-filter" id="description" name="description" placeholder="Description here..." maxlength="100"></textarea>
+            </div>
+
+            <div class="filter-lable">
+                <label for="status">Status</label>
+                <select id="status" name="status" class="status-filter">
+                    <option value="">All</option>
+                    <option value="open">Open</option>
+                    <option value="closed">Closed</option>
+                </select>
+            </div>
+
+            <div class="filter-lable">
+                <label for="category">Category</label>
+                <select id="category" name="category" class="category-filter">
+                    <option value="">All</option>
+                    <% category.forEach(function(category) { %>
+                        <option value="<%= category.category %>"><%= category.category %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="filter-lable">
+                <label for="agent">Agent</label>
+                <select id="agent" name="agent" class="agent-filter">
+                    <option value="">All</option>
+                    <% agent.forEach(function(agent) { %>
+                        <option value="<%= agent.name %>"><%= agent.name %></option>
+                    <% }) %>
+                    <option value="unclaimed">Unclaimed</option>
+                </select>
+            </div>
+            <input type="submit" class="button-filter" value="Filter">
+        </div>
+    </form>
+
+    <% const dayInMilliseconds = 24 * 60 * 60 * 1000; %>
+    <% const currentTime = new Date().getTime(); %>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>User</th>
+            <th>Category</th>
+            <th>State</th>
+            <th>Agent</th>
+            <th></th>
+        </tr>
+        <% tickets.forEach(function(ticket, index) {
+            const isUpdatedRecently = (currentTime - new Date(ticket.formatted_updatestamp).getTime()) < dayInMilliseconds;
+        %>
+            <tr id="row-<%= index %>">
+                <td>#<%= ticket.id %></td>
+                <td>
+                    <% if (isUpdatedRecently) { %>
+                        <span id="green-circle-<%= index %>" class="green-circle"></span>
+                    <% } %>
+                    <%= ticket.title %>
+                </td>
+                <td><%= ticket.user %></td>
+                <td><%= ticket.category %></td>
+                <td><%= ticket.status %></td>
+                <td><%= ticket.agent %></td>
+                <td class="td-view">
+                    <a href="/listing/<%= ticket.id %>" class="view" id="view-<%= index %>">View</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</div>
+
+<%- include("./../partials/footer.ejs") %>

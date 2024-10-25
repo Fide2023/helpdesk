@@ -1,0 +1,111 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+  <div class="creation-div">
+    <form method="post" action="/listing">
+      <div class="title"><%= ticket[0].title %></div>
+
+      <div class="center">
+        <textarea class ="description" type="text" name="description" readonly><%= ticket[0].description %></textarea>
+          <div class="lable">
+            <label for="user">User</label>
+            <input type="text" name="user" value="<%= ticket[0].user %>" readonly>
+          </div>
+
+          <div class="lable">
+            <label for="created">Created</label>
+            <input type="text" name="created" value="<%= ticket[0].formatted_timestamp %>" readonly>
+          </div>
+
+        <div class="lable">
+          <label for="category">Category</label>
+          <% if (ticket[0].status === 'open' && (user.email === ticket[0].user || user.name === ticket[0].agent)) { %>
+          <select id="category_change" name="category">
+            <option value="<%= ticket[0].category %>" ><%= ticket[0].category %></option>
+              <% category.forEach(function(category) { %>
+                <% if (category.category !== ticket[0].category) { %>
+                  <option value="<%= category.category %>"><%= category.category %></option>
+                <% } %>
+              <% }) %>
+          </select>
+          <% } else {%>
+            <input type="text" name="category" value="<%= ticket[0].category %>" readonly>
+            <% } %>
+        </div>
+
+        <div class="lable">
+          <label for="status">Status</label>
+          <% if (user.email === ticket[0].user || user.name === ticket[0].agent) { %>
+          <select name="status" id="status_change">
+            <option value="<%= ticket[0].status %>"><%= ticket[0].status %></option>
+              <% if (ticket[0].status === 'open') { %>
+                <option value="closed">close</option>
+              <% } else { %>
+                <option value="open">open</option>
+              <% } %>
+          </select>
+          <% } else {%>
+            <input type="text" name="status" value="<%= ticket[0].status %>" readonly>
+          <% } %>
+        </div>
+
+        <div class="lable">
+          <% if (ticket[0].status === 'open' && (user && (user.role === "agent" || user.role === "super_admin") && ticket[0].agent === "unclaimed")) { %>
+            <label for="agent">Agent</label>
+            <input type="submit" id="button-claim" class="claim-button" value="Claim Ticket" formaction="/listing/claim" onclick="return confirmUpdate()">
+          <% } else if (ticket[0].status === 'open' && (user && user.name === ticket[0].agent && ticket[0].agent !== "unclaimed")) { %>
+            <label for="agent">Agent</label>
+            <input type="submit" id="button-claim" class="claim-button" value="Unclaim Ticket" formaction="/listing/unclaim" onclick="return confirmUpdate()">
+          <% } else { %>
+            <label for="agent">Agent</label>
+            <input type="text" value="<%= ticket[0].agent %>" readonly>
+          <% } %>
+        </div>
+
+        <div class="lable">
+          <label for="update">Last update</label>
+          <input type="text" name="update" value="<%= ticket[0].formatted_updatestamp %>" readonly>
+        </div>
+
+        <% if (user.email === ticket[0].user || user.name === ticket[0].agent) { %>
+          <input type="submit" id="button-update" class="button-filter" value="Update Ticket" formaction="/listing/update" onclick="return confirmUpdate()">
+        <% } %>
+
+        <ul class="file-list">
+          <% if (paths && paths.length > 0) { %>
+            <% paths.forEach(function(file, index) { %>
+              <li class="file-item" title="Name: <%- file.filename %>">
+                <a class="file-link" href="/<%= file.path %>" target="_blank">View File <%= index + 1 %></a>
+              </li>
+            <% }) %>
+          <% } else { %>
+            <p class="no-files">No files uploaded for this ticket.</p>
+          <% } %>
+        </ul>
+
+        <% if (ticket[0].status === 'open' && (user.email === ticket[0].user || user.name === ticket[0].agent)) { %>
+          <textarea class="comment-text" id="comment" name="comment" placeholder="Comment here..." maxlength="250"></textarea>
+          <input type="submit" id="button-comment" class="button-filter" value="Submit comment" formaction="/listing/comment">
+        <% } %>
+
+        <% comments.forEach(function(comment) { %>
+          <textarea class="comments" readonly><%= comment.commented_timestamp %>
+<%= comment.user %>: <%= comment.comment %>
+          </textarea>
+        <% }); %>
+      </div>
+
+      <input type="hidden" name="id" value="<%= ticket[0].id %>">
+      <input type="hidden" name="agent" value="<%= user.name %>">
+    </form>
+
+  </div>
+</div>
+
+<%- include("./../partials/footer.ejs") %>
+
+<script>
+  function confirmUpdate() {
+    return confirm("Are you sure you want to proceed?");
+  }
+</script>

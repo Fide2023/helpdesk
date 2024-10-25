@@ -1,0 +1,31 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+  <div class="center">
+    <div class="lable">
+      <label for="update">Category</label>
+      <input type="text" name="update" value="<%= post[0].category %>" readonly>
+    </div>
+
+    <div class="lable">
+      <label for="update">Agent</label>
+      <input type="text" name="update" value="<%= post[0].agent %>" readonly>
+    </div>
+
+    <div class="lable-post">
+      <label for="update">Issue</label>
+      <textarea class ="post" type="text" name="issue" readonly><%= post[0].problem %></textarea>
+    </div>
+
+    <div class="lable-post">
+      <label for="update">Solution</label>
+      <textarea class ="post" type="text" name="solution" readonly><%= post[0].solution %></textarea>
+    </div>
+
+    <a href="/listing/<%=post[0].ticket_id %>" class="button-link">View ticket</a>
+  </div>
+
+</div>
+        
+
+<%- include("./../partials/footer.ejs") %>

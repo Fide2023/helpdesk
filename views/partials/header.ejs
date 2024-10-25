@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title><%=title%></title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/style/style.css">
+    </head>
+    <body>
+        <header class="main-header">
+            <nav>
+                <ul>
+                    <% if (loggedIn) { %>
+                        <div class="nav-left">
+                            <li id="li_left"><a href="/">Start</a></li>
+                            <li><a href="/create">Create Ticket</a></li>
+                            <li><a href="/listing">View Tickets</a></li>
+                            <% if (user && user.role == "agent" || user && user.role == "super_admin") { %>
+                                <li><a href="/category">Category</a></li>
+                                <li><a href="/knowledge">Knowledge Base</a></li>
+                            <% } %>
+                            <% if (user && user.role == "super_admin") { %>
+                                <li><a href="/admin">Admin</a></li>
+                            <% } %>
+                        </div>
+                        <div class="nav-right">
+                            <li id="li_right"><a href="/logout">Logout</a></li>
+                        </div>
+                    <% } else { %>
+                        <div class="nav-left">
+                            <li id="li_left"><a href="/">Start</a></li>
+                        </div>
+                        <div class="nav-right">
+                            <li id="li_right"><a href="/login">Login</a></li>
+                        </div>
+                    <% } %>
+                </ul>
+            </nav>
+        </header>
+        

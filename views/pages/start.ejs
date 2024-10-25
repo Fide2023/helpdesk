@@ -1,0 +1,22 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+    <div class="centered-box">
+        <h1>Ticket helpdesk</h1>
+    </div>
+</div>
+
+<%- include("./../partials/footer.ejs") %>
+
+<script>
+    
+    window.onload = function() {
+    console.log("hello")
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success') === 'true') {
+        setTimeout(function() {
+        alert("Your ticket was created successfully, await response!");
+      }, 100)
+    }};
+
+</script>

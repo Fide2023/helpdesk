@@ -1,0 +1,57 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+    <div class="center">
+            <details class="box-details">
+                <summary>Create a post</summary>
+            <div class="creation-div">
+              <form method="post" action="/knowledge/post">
+                
+                <label for="title">Ticket Id</label>
+                <select id="ticket_id" name="id" required>
+                  <option value="" disabled selected>Select a ticket</option>
+                  <% tickets.forEach(function(ticket) { %>
+                      <option value="<%= ticket.id %>">#<%= ticket.id %></option>
+                  <% }) %>
+                </select>
+        
+                <label for="category">Explain the issue further</label>
+                <textarea id="post_issue_solution" name="issue" placeholder="Issue here..." required maxlength="1000"></textarea>
+        
+                <label for="description">Solution for the problem</label>
+                <textarea id="post_issue_solution" name="solution" placeholder="Solution here..." required maxlength="1000"></textarea>
+        
+                <input type="submit" value="Post">
+                <input type="hidden" name="agent" value="<%= user.name %>">
+              </form>
+            </details>
+        </div>
+
+        <form method="get" action="/knowledge/filter">
+            <div class="filter">
+
+                <div class="filter-lable">
+                    <select id="category" name="category" class="category-filter" onchange=this.form.submit()>
+                        <option value="">All</option>
+                        <% category.forEach(function(category) { %>
+                            <option value="<%= category.category %>" 
+                                <%= category.category === selected_category ? 'selected' : '' %>>
+                                <%= category.category %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+            </div>
+        </form>
+    
+        <table>
+            <% knowledge_posts.forEach(function(post, index) {%>
+                <tr id="row-<%= index %>" onclick="window.location.href='/knowledge/<%= post.id %>'" style="cursor: pointer;">
+                    <td>#<%=post.id %> <%= post.agent %>'s post about an <%=post.category %> issue related to ticket #<%=post.ticket_id %></td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+</div>
+
+<%- include("./../partials/footer.ejs") %>

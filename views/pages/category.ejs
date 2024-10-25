@@ -1,0 +1,22 @@
+<%- include("./../partials/header.ejs") %>
+
+<div class="content-container">
+    <div class="creation-div">
+      <div class="center">
+          <form method="post" action="/category">
+            <label for="category">All categories in the system</label>
+            <select id="category_change" name="category">
+                <% category.forEach(function(category) { %>
+                    <option value="<%= category.category %>" disabled selected><%= category.category %></option>
+                  <% }) %>
+            </select>
+
+            <label for="title">Create new category</label>
+            <input type="text" id="category_change" name="new_category" placeholder="Category" required maxlength="20">
+            <input type="submit" value="Create" id="category_change">
+          </form>
+        </div>
+    </div>
+</div>
+
+<%- include("./../partials/footer.ejs") %>
