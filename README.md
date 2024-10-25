@@ -11,6 +11,8 @@ The following npm packages must be installed for the code to work:
 - express-openid-connect
 - nodemailer
 - node-cron
+- promise-mysql
+- ejs
 
 To install these, simply go into the project folder and do the following in the terminal for every package:
 
