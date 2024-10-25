@@ -1,6 +1,6 @@
 Helpdesk
 
-First you have to initiate the package.json:
+First you have to initiate the package.json: \n
 Do this by going to the project folder and typing "npm init" in the terminal.
 
 The following npm packages must be installed for the code to work:
