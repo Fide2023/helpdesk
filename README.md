@@ -56,3 +56,5 @@ select * from user; #locate the user id of your user and copy it
 
 update user set role = "super_admin" where user.id = "<user_id here>";
 ```
+
+Now you have your Super Admin and everything is ready to use.
