@@ -27,8 +27,8 @@
 
 
   <script>
-  const maxFiles = 4;
-  const maxTotalSize = 5 * 1024 * 1024;
+  const maxFiles = "<%= fileSize.maxFiles %>";
+  const maxTotalSize = "<%= fileSize.totalSizeMB %>" * 1024 * 1024;
 
   function validateFiles(input) {
     let totalsize = 0;

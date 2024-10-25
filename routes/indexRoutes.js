@@ -139,6 +139,7 @@ router.get("/create",requiresAuth(), async (req, res) => {
     data.user = (await accounts.getUser(req.oidc.user.sub))[0];
     data.title = "Create";
     data.category = await accounts.getCategories();
+    data.fileSize = require("../config/fileSize.json");
     res.render("pages/ticket.ejs", data);
 });
 
