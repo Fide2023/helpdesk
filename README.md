@@ -4,7 +4,7 @@ To reach the database for adjustments and fetching you can use MariaDB:
 
 Follow the guide and configure the ticket.json file according to your user. https://mariadb.com/get-started-with-mariadb/:
 
-The configure file can be found under config/db/ticket.json
+The config files for the system can be found under config/...
 
 
 
