@@ -6,6 +6,11 @@ Follow the guide and configure the ticket.json file according to your user. http
 
 The config files for the system can be found under config/...
 
+In config/email.json you have to configure:
+
+- service mail
+- user
+- password
 
 
 Before you can install any packages you have to initiate the `package.json`:
