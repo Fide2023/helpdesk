@@ -6,7 +6,7 @@ Follow the guide and configure the ticket.json file according to your user. http
 
 
 
-First, you have to initiate the `package.json`:
+Before you can install any packages you have to initiate the `package.json`:
 Do this by going to the project folder and typing `npm init` in the terminal.
 
 The following npm packages must be installed for the code to work:
