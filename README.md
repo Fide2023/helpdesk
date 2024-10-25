@@ -1,5 +1,7 @@
 # Helpdesk
 
+This project is using node.js so therefor you must install Node JS, you can do this at https://nodejs.org/en
+
 To reach the database for adjustments and fetching you can use MariaDB:
 
 Follow the guide and configure the ticket.json file according to your user. https://mariadb.com/get-started-with-mariadb/:
