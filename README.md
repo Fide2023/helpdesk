@@ -13,12 +13,14 @@ in config/db/ticket.json make neccesary changes to fit your MariaDB user:
 - user
 - password
 
+# Email
 In config/email.json you have to configure the settings for the email functions to work:
 
 - service mail
 - user
 - password
 
+# Auth0
 Create an account on https://auth0.com/docs/get-started and follow their guide how to setup the server.
 
 In config/auth0.json you have to configure the settings for the login functions to work connected to the accounts you just made:
