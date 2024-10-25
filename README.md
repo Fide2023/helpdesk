@@ -6,7 +6,7 @@ Follow the guide and configure the ticket.json file according to your user. http
 
 The config files for the system can be found under config/...
 
-In config/email.json you have to configure:
+In config/email.json you have to configure the settings for the email functions to work:
 
 - service mail
 - user
