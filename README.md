@@ -1,6 +1,7 @@
 # Helpdesk
 
 To reach the database for adjustments and fetching you can use MariaDB:
+
 https://mariadb.com/get-started-with-mariadb/:
 Follow the guide and configure the ticket.json file according to your user.
 
