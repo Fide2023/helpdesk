@@ -46,3 +46,13 @@ To install these, simply go into the project folder and do the following in the 
 npm install "package name"  # example: npm install express
 ```
 To run the code, you have to go to the project folder and type `node index.js` in the terminal.
+
+The system should now be fully operationabal. To create a Super Admin for the server, login with the wanted account and close the server.
+
+move to ticket/sql in the terminal and enter the database using mariadb. Inside the database you can manually change the role of the created account by doing the following:
+
+```bash
+select * from user; #locate the user id of your user and copy it
+
+update user set role = "super_admin" where user.id = "<user_id here>";
+```
