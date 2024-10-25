@@ -14,6 +14,8 @@ In config/email.json you have to configure the settings for the email functions 
 - 
 In config/auth0.json you have to configure the settings for the login functions to work:
 
+Create an account on https://auth0.com/docs/get-started and follow their guide how to setup the server.
+
 - secret (64 character long random string)
 - clientID
 - issuerBaseURl
