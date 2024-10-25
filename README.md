@@ -1,5 +1,5 @@
 # Helpdesk
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/dc468b66-850c-4412-94f9-9cb7591fded3)
 
 First, you have to initiate the `package.json`:
 Do this by going to the project folder and typing `npm init` in the terminal.
