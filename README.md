@@ -29,6 +29,7 @@ In config/auth0.json you have to configure the settings for the login functions 
 - clientID
 - issuerBaseURl
 
+# Packages
 Before you can install any packages you have to initiate the `package.json`:
 Do this by going to the project folder and typing `npm init` in the terminal.
 
