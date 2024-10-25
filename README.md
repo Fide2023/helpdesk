@@ -1,5 +1,7 @@
 # Helpdesk
 
+https://mariadb.com/get-started-with-mariadb/
+
 First, you have to initiate the `package.json`:
 Do this by going to the project folder and typing `npm init` in the terminal.
 
