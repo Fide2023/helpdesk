@@ -67,8 +67,6 @@ Please look into these tickets.
 Regards,
 Ticket helpdesk`
         };
-
-        // Send the email
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
                 console.log('Error sending email:', error);
@@ -79,17 +77,13 @@ Ticket helpdesk`
     }
 };
 
-// Schedule the task to run every day at midnight
 cron.schedule('0 0 * * *', async () => {
     await notifySuperAdminAboutUnrespondedTickets();
 });
 
-// Function to send email
 function sendEmailNotification(userEmail, ticket, changes) {
-    // Create a transporter with your email service credentials
     let transporter = nodemailer.createTransport(emailConfig);
 
-    // Define the email options
     let mailOptions = {
       from: emailConfig.auth.user,
       to: userEmail,
@@ -106,7 +100,6 @@ function sendEmailNotification(userEmail, ticket, changes) {
   Ticket helpdesk`,
     };
   
-    // Send the email
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log('Error sending email:', error);
@@ -116,7 +109,6 @@ function sendEmailNotification(userEmail, ticket, changes) {
     });
   }
   
-// req.isAuthenticated is provided from the auth router
 router.get('/', async (req, res) => {
     let data = {};
     data.loggedIn = req.oidc.isAuthenticated();
@@ -337,9 +329,7 @@ Comment: ${req.body.comment}`;
 
 router.post('/create', upload.array('images', 10), async (req, res) => {
 
-    // Accessing uploaded files
-    const files = req.files; // Array of uploaded files
-    // Further logic to handle the ticket creation, like saving data to a database...
+    const files = req.files;
     const user = req.oidc.user.email;
     await accounts.createTicket(req.body.description, req.body.category,req.body.title,user)
     const ticketID = await accounts.highestId();
@@ -362,12 +352,9 @@ router.post("/knowledge/post", async (req, res) => {
 
 
 router.use((err, req, res, next) => {
-    // Check if the error is related to the user role being undefined
     if (err.message && err.message.includes("Cannot read property 'role' of undefined")) {
-        // Redirect to /logout
         return res.redirect('/logout');
     }
-    // Pass the error to the default error handler
     next(err);
 });
 
