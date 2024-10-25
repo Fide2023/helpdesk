@@ -1,6 +1,6 @@
 # Helpdesk
 
-To reach the database for adjustments and fetching you can use MariaDB
+To reach the database for adjustments and fetching you can use MariaDB.
 https://mariadb.com/get-started-with-mariadb/
 
 First, you have to initiate the `package.json`:
