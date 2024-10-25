@@ -4,7 +4,11 @@ To reach the database for adjustments and fetching you can use MariaDB:
 
 Follow the guide and configure the ticket.json file according to your user. https://mariadb.com/get-started-with-mariadb/:
 
-The config files for the system can be found under config/...
+in config/db/ticket.json make neccesary changes to fit your MariaDB user:
+
+- host
+- user
+- password
 
 In config/email.json you have to configure the settings for the email functions to work:
 
