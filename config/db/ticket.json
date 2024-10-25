@@ -1,7 +1,7 @@
 {
-    "host":     "MSI.local",
-    "user":     "dbadm",
-    "password": "P@ssw0rd",
+    "host":     "host here",
+    "user":     "username here",
+    "password": "password here",
     "database": "ticket_system",
     "multipleStatements": true
 }

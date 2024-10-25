@@ -8,10 +8,9 @@ const { requiresAuth } = require('express-openid-connect');
 const nodemailer = require('nodemailer');
 const cron = require('node-cron');
 
-// Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/'); // Destination folder for uploads
+        cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + Buffer.from(file.originalname, 'latin1').toString('utf8')); // Preserve original filename with special characters
@@ -25,12 +24,9 @@ const config = require("../config/auth0.json");
 const emailConfig = require("../config/email.json");
 
 config.afterCallback = async (req, res, session) => {
-// Check if the session contains id_token
 if (session && session.id_token) {
-    // Decode the id_token to extract user information
     const decodedToken = jwt.decode(session.id_token);
 
-    // Access user information from the decoded token
     const user = decodedToken;
     if (user) {
     await accounts.insertUser(user.sub, user.name, user.email, user.picture);
@@ -46,20 +42,18 @@ router.use(auth(config));
 
 
 async function notifySuperAdminAboutUnrespondedTickets() {
-    // Get the list of tickets without a response in the last 3 days
     const tickets = await accounts.getTicketsRespons();
 
     let transporter = nodemailer.createTransport(emailConfig);
 
     if (tickets.length > 0) {
-        const superAdmin = await accounts.getSuperAdmin(); // Ensure you have a way to fetch super_admin details
+        const superAdmin = await accounts.getSuperAdmin();
         const superAdminEmail = superAdmin[0].email;
 
         let changes = tickets.map(ticket => `Ticket #${ticket.id} - user: ${ticket.user}`).join('\n\n');
 
-        // Send email
         let mailOptions = {
-            from: 'tickethelpdesk20@gmail.com',
+            from: emailConfig.auth.user,
             to: superAdminEmail,
             subject: `Tickets Pending Response for More Than 3 Days`,
             text: `Hello Super Admin,
@@ -97,7 +91,7 @@ function sendEmailNotification(userEmail, ticket, changes) {
 
     // Define the email options
     let mailOptions = {
-      from: 'tickethelpdesk20@gmail.com',
+      from: emailConfig.auth.user,
       to: userEmail,
       subject: `Ticket #${ticket.id} Updated`,
       text: `Hello,

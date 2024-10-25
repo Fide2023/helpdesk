@@ -1,11 +1,11 @@
 {
     "authRequired": false,
     "auth0Logout": true,
-    "secret": "1baa5a1d4adc9573110e77691ef95a2088f5db0a9a1c6f04cde2b0dc3eee637c",
+    "secret": "Secret here 64 characters",
     "baseURL": "http://localhost:1337",
-    "clientID": "6U3eFfgERyojnTPhOHVCPR1mYYBaBydj",
-    "issuerBaseURL": "https://dev-20l6vgq2hzzfh1ib.us.auth0.com",
+    "clientID": "ClientID here",
+    "issuerBaseURL": "BaseURL here",
     "authorizationParams": {
       "scope": "openid profile email"
-    }
+    } 
   }

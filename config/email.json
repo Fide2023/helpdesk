@@ -1,7 +1,7 @@
 {
-    "service": "gmail",
+    "service": "Mail service here, gmail etc...",
     "auth": {
-      "user": "tickethelpdesk20@gmail.com",
-      "pass": "jexq ijbm yqtg ueaj"
+      "user": "username for the mail",
+      "pass": "password for the mail"
     }
 }
