@@ -1,4 +1,5 @@
 # Helpdesk
+Introduction: This is a ticket helpdesk supposed to help you manage tickets received by your IT department
 
 This project is using node.js so therefor you must install Node JS, you can do this at https://nodejs.org/en
 
