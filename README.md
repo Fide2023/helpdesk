@@ -1,7 +1,9 @@
 # Helpdesk
 
-To reach the database for adjustments and fetching you can use MariaDB.
-https://mariadb.com/get-started-with-mariadb/
+To reach the database for adjustments and fetching you can use MariaDB:
+https://mariadb.com/get-started-with-mariadb/:
+Follow the guide and configure the ticket.json file according to your user.
+
 
 First, you have to initiate the `package.json`:
 Do this by going to the project folder and typing `npm init` in the terminal.
