@@ -73,6 +73,8 @@ update user set role = "super_admin" where user_id = "<user_id here>";
 
 Now you have your Super Admin and everything is ready to use.
 
+ps. inside config/fileSize you can change the amount of files and the total size of the attachments to tickets.
+
 # License
 
 Copyright [2024] [Filip Dennryd]
