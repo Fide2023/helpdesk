@@ -14,8 +14,16 @@ in config/db/ticket.json make neccesary changes to fit your MariaDB user:
 - user
 - password
 
+Now you can initialize the database by going to the project folder and entering the filepath /sql
+
+Inside the sql folder open your mariaDB terminal and run `source reset.sql`
+
+Now the database is in place and ready to gather information
+
 # Email
 In config/email.json you have to configure the settings for the email functions to work:
+
+Service is the type of email you want to use, example would be "gmail". User is the username of the email account and password is the password. With gmail you have to activate 2 step verification and generate an app password.
 
 - service mail
 - user
@@ -58,9 +66,9 @@ The system should now be fully operationabal at localhost:1337 in your browser. 
 move to ticket/sql in the terminal and enter the database using mariadb. Inside the database you can manually change the role of the created account by doing the following:
 
 ```bash
-select * from user; #locate the user id of your user and copy it
+select * from user; #locate the user_id of your user and copy it
 
-update user set role = "super_admin" where user.id = "<user_id here>";
+update user set role = "super_admin" where user_id = "<user_id here>";
 ```
 
 Now you have your Super Admin and everything is ready to use.
