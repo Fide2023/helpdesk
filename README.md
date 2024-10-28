@@ -14,7 +14,7 @@ in config/db/ticket.json make neccesary changes to fit your MariaDB user:
 - user
 - password
 
-Now you can initialize the database by going to the project folder and entering the filepath /sql
+Now you can initialize the database by going to the project folder /sql
 
 Inside the sql folder open your mariaDB terminal and run `source reset.sql`
 
