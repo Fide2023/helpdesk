@@ -71,7 +71,7 @@ select * from user; #locate the user_id of your user and copy it
 update user set role = "super_admin" where user_id = "<user_id here>";
 ```
 
-Now you have your Super Admin and everything is ready to use.
+Now you have your Super Admin and everything is ready to test and use, have fun!
 
 ps. inside config/fileSize you can change the amount of files and the total size of the attachments to tickets.
 
