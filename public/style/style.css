@@ -1,4 +1,4 @@
-/* Universal styles */
+
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,7 +16,6 @@ body {
     background-color: rgb(191, 191, 191);
 }
 
-/* Header */
 .main-header {
     background-color: rgb(230, 229, 229);
     min-height: 50px;
@@ -77,8 +76,6 @@ li a:hover {
     display: flex;
 }
 
-
-/* Content */
 .content-container {
     width: 90%;
     margin: 0 auto;
@@ -87,7 +84,6 @@ li a:hover {
     background-color: rgb(240, 240, 240);
 }
 
-/* Footer */
 .main-footer {
     background-color: rgb(145, 145, 145);
     color: white;
@@ -103,7 +99,6 @@ li a:hover {
     margin-right: 50px;
 }
 
-/* Form Elements */
 textarea, select, input[type=text], input[type=button], input[type=submit], input[type=reset] {
     display: block;
     margin: 8px 0;
@@ -143,7 +138,6 @@ input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
     margin: 10px;
 }
 
-/* Table Styles */
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -194,7 +188,6 @@ table th {
     background-color: #028a53;
 }
 
-/* Filter Form */
 .filter-form {
     display: flex;
     align-items: flex-start;
@@ -202,10 +195,10 @@ table th {
 
 .filter {
     display: flex;
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center; /* Align items vertically centered */
-    gap: 20px; /* Add spacing between items */
-    flex-wrap: wrap; /* Allows wrapping to a new line if the container is too small */
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 10px;
 }
@@ -214,7 +207,6 @@ table th {
     flex-direction: column;
 }
 
-/* Input & Button Customizations */
 .status-filter,
 .category-filter,
 .agent-filter {
@@ -232,8 +224,8 @@ table th {
 }
 
 .button-container {
-    display: flex; /* Use flexbox to align items in a row */
-    gap: 10px; /* Optional: adds space between buttons */
+    display: flex;
+    gap: 10px;
 }
 
 .button-filter {
@@ -266,7 +258,6 @@ table th {
     text-align: center;
 }
 
-/* Centered Box */
 .centered-box {
     width: 60%;
     margin: 100px auto;
@@ -292,9 +283,9 @@ table th {
 .comments {
     width: 80%;
     height: 80px;
-    white-space: pre-wrap; /* Ensures that long text wraps correctly */
-    word-wrap: break-word; /* Breaks long words when necessary */
-    overflow-wrap: break-word; /* Ensures text doesn't overflow */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .comment-text-all {
@@ -327,10 +318,10 @@ table th {
 .center {
     width: 100%;
     display: flex;
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center; /* Align items vertically centered */
-    gap: 10px; /* Add spacing between items */
-    flex-wrap: wrap; /* Allows wrapping to a new line if the container is too small */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 10px;
 }
@@ -352,45 +343,42 @@ table th {
     height: 42px;
 }
 
-/* Center the file list container and display files in a row */
 .file-list {
-    list-style: none; /* Removes bullet points */
+    list-style: none;
     padding: 0;
-    margin: 0 auto; /* Centers the list */
-    display: flex; /* Display list items in a row */
-    justify-content: center; /* Centers the files in the container */
-    flex-wrap: wrap; /* Allows wrapping to the next row if there are too many files */
-    gap: 15px; /* Adds space between each file */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-/* Style the file links */
 .file-link {
-    text-decoration: none; /* Removes underline */
-    color: #000000; /* Link color */
+    text-decoration: none;
+    color: #000000;
     font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 4px;
 }
 
-/* Style for no files message */
 .no-files {
     text-align: center;
     font-style: italic;
-    color: #888; /* Grey color for no files message */
+    color: #888;
 }
 
 .highlight {
-    border: 2px solid rgba(255, 255, 0, 0.593); /* Change to your preferred highlight color */
+    border: 2px solid rgba(255, 255, 0, 0.593);
 }
 
 .green-circle {
-    display: inline-block; /* Allows to sit next to the title */
-    width: 10px;          /* Circle width */
-    height: 10px;         /* Circle height */
-    border-radius: 50%;   /* Makes the element circular */
-    background-color: green; /* Circle color */
-    margin-right: 5px;    /* Space between circle and title */
-    vertical-align: middle; /* Aligns with the middle of the text */
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
 #post {
@@ -416,21 +404,21 @@ table th {
 .button-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF; /* Button background color */
-    color: white; /* Button text color */
+    background-color: #007BFF;
+    color: white;
     text-align: center;
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
+    text-decoration: none;
+    border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
     width:30%;
-  }
+}
   
-  .button-link:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-  }
+.button-link:hover {
+    background-color: #0056b3;
+}
 
-  .box-details {
+.box-details {
     border: 1px solid #ccc;
     padding: 15px;
     margin: 20px 0;
@@ -443,7 +431,6 @@ table th {
     margin-right: auto;
 }
 
-/* Style the summary tag */
 .box-details summary {
     font-weight: bold;
     cursor: pointer;
